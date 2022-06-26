@@ -1,11 +1,29 @@
-const fighters = ["🐉", "🐥", "🐊","💩", "🦍", "🐢", "🐩", "🦭", "🦀", "🐝", "🤖", "🐘", "🐸", "🕷","🐆", "🦕", "🦁"]
+let appleShelf = document.querySelector('.apple-shelf');
+let orangeShelf = document.querySelector('.orange-shelf');
+let sortButton = document.querySelector('.sort');
+let isEmpty = true
 
-const stageEl = document.getElementById("stage")
-const fightButton = document.getElementById("fightButton")
+let fruit = ["🍎", "🍊", "🍎", "🍎", "🍊"]
 
-fightButton.addEventListener("click", function() {
-    let fighter1 = fighters[Math.floor(Math.random() * fighters.length)]
-    let fighter2 = fighters[Math.floor(Math.random() * fighters.length)]
-    stageEl.textContent = fighter1 + " VS " + fighter2
+
+sortButton.addEventListener('click', () => {
+    if(isEmpty === true){
+        run()
+    }
 })
 
+function run(){
+    for(i=0; i <fruit.length; i++){
+        let apple = fruit[i]
+        let orange = fruit[i]
+ 
+        if(apple === "🍎"){
+         appleShelf.textContent += apple
+         isEmpty = false
+        }
+        else if (orange === "🍊"){
+         orangeShelf.textContent += orange
+         isEmpty = false
+        }
+     }
+}
